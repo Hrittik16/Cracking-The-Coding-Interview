@@ -62,7 +62,7 @@ public:
 ```
 <br/>
 
-### Question 3 : Find the repeating and the missing
+### Question 2 : Find the repeating and the missing
 ### [Link to Question](https://www.hackerrank.com/contests/kcertc/challenges/find-the-repeating-and-the-missing/problem)
 
 ### Solution :
@@ -101,5 +101,25 @@ int main() {
 ```
 <br/>
 
+### Question 3 : Maximum Subarray
+### [Link to Question](https://leetcode.com/problems/maximum-subarray/)
+
+### Solution : 
+> #### This [video](https://www.youtube.com/watch?v=86CQq3pKSUw) explains kadane's algorithm which is used to solve this problem.  
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        long long int curr_sum = -1e18, best_sum = -1e18;
+        for(int i = 0; i < nums.size(); i++) {
+            curr_sum = max((long long int)nums[i], (long long int)curr_sum+nums[i]);
+            best_sum = max(best_sum, curr_sum);
+        }
+        return best_sum;
+    }
+};
+```
 
 
