@@ -35,6 +35,7 @@
 | Day 25     | Dynamic Programming |
 | Day 26     | Dynamic Programming |
 
+<br/>
 
 ## Day 1 : Arrays
 
@@ -43,7 +44,7 @@
 
 ### Solution : 
 > #### We need to solve this question in O(n) time and O(1) space. We know that 1 <= a[i] <= n, so we can use the indexes to check whether an element exists twice. For every element a[i] mark it's index a[a[i]-1] as negative. Now if a[a[i]-1] is already negative for any element that means it is already visited and we can insert the element in a list.
-### **ALGORITHM**
+### **CODE**
 ```c++
 class Solution {
 public:
@@ -59,3 +60,46 @@ public:
     }
 };
 ```
+<br/>
+
+### Question 3 : Find the repeating and the missing
+### [Link to Question](https://www.hackerrank.com/contests/kcertc/challenges/find-the-repeating-and-the-missing/problem)
+
+### Solution :
+> #### First we will use a hash table to keep track of the frequency of each element. This will help us find out which element appears twice. Next, we will calculate the sum of all the elements in the array and subtract the duplicate number from it. We will also calculate the actual sum of the array using the formula n*(n+1)/2. The difference of actual sum and sum of the array will give us the missing number. 
+
+### **CODE**
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() { 
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    unordered_map<int, int> frequency;
+    int missing_num;
+    for(auto x: arr) {
+        if(frequency[x] == 1) {
+            missing_num = x;
+            break;
+        }
+        else 
+            frequency[x]++;
+    }
+    long long int sum = 0, actual_sum = 0;
+    for(auto x: arr)
+        sum += x;
+    actual_sum = (arr.size()*(arr.size()+1))/2;
+    sum -= missing_num;
+    cout << actual_sum-sum << "," << missing_num << "\n";
+    
+    return 0;
+}
+```
+<br/>
+
+
+
