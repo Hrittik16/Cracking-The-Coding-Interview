@@ -34,3 +34,28 @@
 | Day 24     | Graph               |
 | Day 25     | Dynamic Programming |
 | Day 26     | Dynamic Programming |
+
+
+## Day 1 : Arrays
+
+### Question 1 : Find All Duplicates in an Array
+### [Link to Question](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+
+### Solution : 
+### We need to solve this question in O(n) time and O(1) space. We know that 1 <= a[i] <= n, so we can use the indexes to check whether an element exists twice. For every element a[i] mark it's index a[a[i]-1] as negative. Now if a[a[i]-1] is already negative for any element that means it is already visited and we can insert the element in a list.
+### **ALGORITHM**
+```c++
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        vector<int> duplicates;
+        for(int i = 0; i < nums.size(); i++) {
+            if(nums[abs(nums[i])-1] < 0)
+                duplicates.push_back(abs(nums[i]));
+            else
+                nums[abs(nums[i])-1] = -nums[abs(nums[i])-1];
+        }
+        return duplicates;
+    }
+};
+```
