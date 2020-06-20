@@ -121,5 +121,35 @@ public:
     }
 };
 ```
+<br/>
 
+### Question 4 : Sort Colors
+### [Link to Question](https://leetcode.com/problems/sort-colors/)
+
+### Solution : 
+> #### To simplify the question we have to sort the array so that all the 0's, 1's and 2's are adjacent. But the catch here is we have to sort them in place without using any extra space and do it in one pass. So, we will use 3 pointers(beg, mid, end) to solve this problem. Beg and mid pointers will point at the index 0 while starting and end pointer will point at the index n-1 (where n is the size of the array). We will run a while loop that will check if mid <= end. That will be the condition of our loop. Now if nums[mid] is not 0 or 2 we will increment it. If nums[mid] is 0 we know we have to swap it with the element at index beg. Then we will increment both beg and mid. If nums[mid] is 2 we know we have to swap it with the element at index end. Then we will decrement end pointer. Towards the end of our loop the array will be sorted.
+
+### **CODE**
+```c++
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int n = nums.size();
+        int beg = 0, end = n-1, mid = 0;
+        while(mid <= end) {
+            if(nums[mid] != 0 && nums[mid] != 2)
+                mid++;
+            else if(nums[mid] == 0) {
+                swap(nums[beg], nums[mid]);
+                beg++;
+                mid++;
+            }
+            else if(nums[mid] == 2) {
+                swap(nums[end], nums[mid]);
+                end--;
+            }
+        }
+    }
+};
+```
 
