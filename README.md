@@ -144,4 +144,37 @@ public:
     }
 };
 ```
+<b2/>
 
+### Question 5 : Merge Sorted Array
+### [Link to Question](https://leetcode.com/problems/merge-sorted-array/)
+
+### Solution : 
+> #### Since the two arrays given to us are sorted we can start filling nums1 from the end. We will compare whether nums1[i] > nums2[j] where i starts from m-1 and j starts from n-1. The larger number will fill the spot. 
+
+### **CODE**
+```c++
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m-1, j = n-1, k = m+n-1;
+        while(i >= 0 && j >= 0) {
+            if(nums1[i] > nums2[j]) {
+                nums1[k] = nums1[i];
+                k--;
+                i--;
+            }
+            else {
+                nums1[k] = nums2[j];
+                k--;
+                j--;
+            }
+        }
+        while(j >= 0) {
+            nums1[k] = nums2[j];
+            k--;
+            j--;
+        }
+    }
+};
+```
