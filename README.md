@@ -199,13 +199,12 @@ public:
         vector<vector<int>> result;
         result.push_back(intervals[0]);
         for(int i = 1; i < intervals.size(); i++) {
-            if(result.back()[1] < intervals[i][0])
+            if(result.back().back() < intervals[i].front())
                 result.push_back(intervals[i]);
             else 
-                result.back()[1] = max(result.back()[1], intervals[i][1]);
+                result.back().back() = max(result.back().back(), intervals[i].back());
         }
         return result;
     }
-};
 };
 ```
