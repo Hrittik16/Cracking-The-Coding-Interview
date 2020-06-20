@@ -178,3 +178,52 @@ public:
     }
 };
 ```
+<br/>
+
+### Question 6 : Merge Intervals
+### [Link to Question](https://leetcode.com/problems/merge-intervals/)
+
+### Solution :
+> #### 
+
+### **CODE**
+```c++
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+        int i = 0, mx, j = 0, last;
+        vector<vector<int>> result;
+        while(j < intervals.size() && i < intervals.size()) {
+            last = intervals[i][1];
+            mx = last;
+            for(j = i+1; j < intervals.size(); j++) {
+                if(intervals[j][0] <= last) {
+                    mx = max(mx, intervals[j][1]);
+                    last = mx;
+                    if(j == intervals.size()-1) {
+                        vector<int> temp = {intervals[i][0], mx};
+                        result.push_back(temp);
+                    }
+                }
+                else {
+                    if(mx == -1e9) {
+                        result.push_back(intervals[i]);   
+                    }
+                    else {
+                        vector<int> temp = {intervals[i][0], mx};
+                        result.push_back(temp);
+                    }
+                    i = j;
+                    break;
+                }
+            }
+            if(i != j && i == intervals.size()-1) {
+                result.push_back(intervals[i]);
+                i++;
+            }
+        }
+        return result;
+    }
+};
+```
