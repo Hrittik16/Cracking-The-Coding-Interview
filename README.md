@@ -184,7 +184,7 @@ public:
 ### [Link to Question](https://leetcode.com/problems/merge-intervals/)
 
 ### Solution :
-> #### 
+> #### First we will sort the 2d list based on the first element of each list. We will then insert the first list into our result list. Next, we will compare the last element of the first list with the first element of the second list. If the former element is greater than or equal to the later element then we will merge it into it. We will continue doing it for all the lists. 
 
 ### **CODE**
 ```c++
