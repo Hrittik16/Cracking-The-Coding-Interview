@@ -1,39 +1,29 @@
 # CRACKING  THE CODING INTERVIEW
 
-## Solving 159 questions in 26 days
+## Solving 159 questions in 52 days (~ 2 months)
 ## Questions Curated by : take U forward (Youtube Channel)
 ## [Link to Questions](https://docs.google.com/document/d/1SM92efk8oDl8nyVw8NHPnbGexTS9W-1gmTEYfEurLWQ/edit)
 
 ## Table of Content
  
-| Days       | Topic               |
-|------------|---------------------|        
-| Day 1      | Array               |
-| Day 2      | Array               |
-| Day 3      | Maths               |
-| Day 4      | Hashing             |
-| Day 5      | LinkedList          |
-| Day 6      | LinkedList          |
-| Day 7      | 2-Pointer           |
-| Day 8      | Greedy              |
-| Day 9      | Backtracking        |
-| Day 10     | Backtracking        |
-| Day 11     | Divide and Conquer  |
-| Day 12     | Bits                |
-| Day 13     | Stack and Queue     |
-| Day 14     | Stack and Queue     |
-| Day 15     | Strings             |
-| Day 16     | Strings             |
-| Day 17     | Binary Tree         |
-| Day 18     | Binary Tree         |
-| Day 19     | Binary Tree         |
-| Day 20     | Binary Search Tree  |
-| Day 21     | Binary Search Tree  |
-| Day 22     | Mixed Questions     |
-| Day 23     | Graph               |
-| Day 24     | Graph               |
-| Day 25     | Dynamic Programming |
-| Day 26     | Dynamic Programming |
+| Days           | Topic               |
+|----------------|---------------------|        
+| Day 1 - Day 4  | Array               |
+| Day 5 - Day 6  | Maths               |
+| Day 7 - Day 8  | Hashing             |
+| Day 9 - Day 12 | LinkedList          |
+| Day 13- Day 14 | 2-Pointer           |
+| Day 15- Day 16 | Greedy              |
+| Day 17- Day 20 | Backtracking        |
+| Day 21- Day 22 | Divide and Conquer  |
+| Day 23- Day 24 | Bits                |
+| Day 25- Day 28 | Stack and Queue     |
+| Day 29- Day 32 | Strings             |
+| Day 33- Day 38 | Binary Tree         |
+| Day 39- Day 42 | Binary Search Tree  |
+| Day 43- Day 44 | Mixed Questions     |
+| Day 45- Day 48 | Graph               |
+| Day 49- Day 52 | Dynamic Programming |
 
 <br/>
 
@@ -122,6 +112,8 @@ public:
 };
 ```
 <br/>
+
+## Day 2 : Arrays
 
 ### Question 4 : Sort Colors
 ### [Link to Question](https://leetcode.com/problems/sort-colors/)
