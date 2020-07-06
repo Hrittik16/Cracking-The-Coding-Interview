@@ -33,16 +33,20 @@
 ### [Link to Question](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
 
 ### **CODE**
-```python
-class Solution:
-    def findDuplicates(self, nums: List[int]) -> List[int]:
-        new_nums = []
-        for i in range(0, len(nums)):
-            if nums[abs(nums[i])-1] < 0:
-                new_nums.append(abs(nums[i]))
-            else:
-                nums[abs(nums[i])-1] = -nums[abs(nums[i])-1]
-        return new_nums
+```c++
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        vector<int> duplicates;
+        for(int i = 0; i < nums.size(); i++) {
+            if(nums[abs(nums[i])-1] < 0)
+                duplicates.push_back(abs(nums[i]));
+            else
+                nums[abs(nums[i])-1] = -nums[abs(nums[i])-1];
+        }
+        return duplicates;
+    }
+};
 ```
 <br/>
 
