@@ -201,21 +201,7 @@ public:
 ```c++
 class Solution {
 public:
-    
-    void print_matrix(vector<vector<int>>& matrix) {
-        for(int i = 0; i < matrix.size(); i++) {
-            for(int j = 0; j < matrix[0].size(); j++)
-                cout << matrix[i][j]  << " ";
-            cout << "\n";
-        }
-    }
-    
     void setZeroes(vector<vector<int>>& matrix) {
-        // Find the last row containing 0
-        // Go through all the rows till last row and mark the equivalent column in last row as 0
-        // Go through 1st row all the columns and if the equivalent column in last row containing 0
-        // is 0, then make the entire column 0
-        
         int m = matrix.size(), n = matrix[0].size();
         int last = -1;
         for(int i = m-1; i >= 0 && last == -1; i--) {
@@ -241,8 +227,6 @@ public:
                     matrix[i][k] = 0;
             }
         }
-        
-        //print_matrix(matrix);
         
         for(int j = 0; j < n; j++) {
             if(matrix[last][j] == 0) {
