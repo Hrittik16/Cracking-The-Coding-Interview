@@ -1,6 +1,5 @@
 # CRACKING  THE CODING INTERVIEW
 
-## Solving 160 questions in 52 days (~ 2 months)
 ## Questions Curated by : take U forward (Youtube Channel)
 ## [Link to Questions](https://docs.google.com/document/d/1SM92efk8oDl8nyVw8NHPnbGexTS9W-1gmTEYfEurLWQ/edit)
 
