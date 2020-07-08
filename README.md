@@ -195,7 +195,7 @@ public:
 ## Day 3: Arrays
 
 ### Question 7 : Set Matrix Zeroes
-### [Link to Question]()
+### [Link to Question](https://leetcode.com/problems/set-matrix-zeroes/)
 
 ### **CODE**
 ```c++
