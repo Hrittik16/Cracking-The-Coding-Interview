@@ -39,10 +39,10 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int n = nums.size();
-        vector<int> fre(n+1, 0);
+        vector<int> fre(n, 0);
         for(auto x: nums)
             fre[x]++;
-        for(int i = 1; i < n+1; i++) {
+        for(int i = 1; i < n; i++) {
             if(fre[i] >= 2)
                 return i;
         }
