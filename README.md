@@ -51,8 +51,8 @@ public:
 };
 ```
 
-### Time Complexity : O(n), where n is the size of the array
-### Space Complexity : O(n)
+#### Time Complexity : O(n), where n is the size of the array
+#### Space Complexity : O(n)
 
 <br/>
 
