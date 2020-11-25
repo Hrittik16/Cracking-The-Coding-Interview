@@ -30,24 +30,28 @@
 
 ## Day 1 : Arrays
 
-### Question 1 : Find All Duplicates in an Array
-### [Link to Question](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+### Question 1 : Find the Duplicate Number
+### [Link to Question](https://leetcode.com/problems/find-the-duplicate-number/)
 
 ### **CODE**
 ```c++
 class Solution {
 public:
-    vector<int> findDuplicates(vector<int>& nums) {
-        vector<int> duplicates;
-        for(int i = 0; i < nums.size(); i++) {
-            if(nums[abs(nums[i])-1] < 0)
-                duplicates.push_back(abs(nums[i]));
-            else
-                nums[abs(nums[i])-1] = -nums[abs(nums[i])-1];
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> fre(n+1, 0);
+        for(auto x: nums)
+            fre[x]++;
+        for(int i = 1; i < n+1; i++) {
+            if(fre[i] >= 2)
+                return i;
         }
-        return duplicates;
+        return 0;
     }
 };
+
+### Time Complexity : O(n), where n is the size of the array
+### Space Complexity : O(n)
 ```
 <br/>
 
