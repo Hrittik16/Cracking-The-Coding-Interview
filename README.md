@@ -49,10 +49,11 @@ public:
         return 0;
     }
 };
+```
 
 ### Time Complexity : O(n), where n is the size of the array
 ### Space Complexity : O(n)
-```
+
 <br/>
 
 ### Question 2 : Find the repeating and the missing
