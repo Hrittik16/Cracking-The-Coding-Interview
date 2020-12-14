@@ -88,5 +88,41 @@ public:
 #### Time Complexity: O(n), where n is the size of the array
 #### Space Complexity: O(1)
 
-<b2/>
+<br/>
 
+
+### Question 3 : Merge Sorted Array
+### [Link To Question](https://leetcode.com/problems/merge-sorted-array/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int start = 0, mid = m, i = 0;
+        while(i < n) {
+            if(start == mid) {
+                for(int j = i; j < n; j++) {
+                    nums1[start] = nums2[j];
+                    start++;
+                }
+                break;
+            }
+            if(nums1[start] >= nums2[i]) {
+                for(int j = mid; j > start; j--) {
+                    nums1[j] = nums1[j-1];
+                }
+                nums1[start] = nums2[i];
+                start++;
+                i++;
+                mid++;
+            }
+            else
+                start++;
+        }
+    }
+};
+```
+
+#### Time Complexity: O(n+m)
+#### Space Complexity: O(1)
