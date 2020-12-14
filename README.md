@@ -126,3 +126,27 @@ public:
 
 #### Time Complexity: O(n+m)
 #### Space Complexity: O(1)
+
+<br>
+
+
+### Question 4 : Maximum Subarray Sum
+### [Link to Question](https://leetcode.com/problems/maximum-subarray/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        long long curr_sum = -1e18, max_sum = -1e18;
+        for(int i = 0; i < nums.size(); i++) {
+            curr_sum = max(1LL*nums[i], 1LL*nums[i]+curr_sum);
+            max_sum = max(curr_sum, max_sum);
+        }
+        return (int)max_sum;
+    }
+};
+```
+
+#### Time Complexity : O(n), where n is the size of the array
+#### Space Complexity : O(1)
