@@ -28,7 +28,7 @@
 
 <br/>
 
-## Day 1 : Arrays
+## Arrays
 
 ### Question 1 : Find the Duplicate Number
 ### [Link to Question](https://leetcode.com/problems/find-the-duplicate-number/)
