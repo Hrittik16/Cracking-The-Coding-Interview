@@ -7,24 +7,24 @@
 
 ## Table of Content
  
-| Days           | Topic               |
-|----------------|---------------------|        
-| Day 1 - Day 4  | Array               |
-| Day 5 - Day 6  | Maths               |
-| Day 7 - Day 8  | Hashing             |
-| Day 9 - Day 12 | LinkedList          |
-| Day 13- Day 14 | 2-Pointer           |
-| Day 15- Day 16 | Greedy              |
-| Day 17- Day 20 | Backtracking        |
-| Day 21- Day 22 | Divide and Conquer  |
-| Day 23- Day 24 | Bits                |
-| Day 25- Day 28 | Stack and Queue     |
-| Day 29- Day 32 | Strings             |
-| Day 33- Day 38 | Binary Tree         |
-| Day 39- Day 42 | Binary Search Tree  |
-| Day 43- Day 44 | Mixed Questions     |
-| Day 45- Day 48 | Graph               |
-| Day 49- Day 52 | Dynamic Programming |
+| Topic               |
+|---------------------|        
+| Array               |
+| Maths               |
+| Hashing             |
+| LinkedList          |
+| 2-Pointer           |
+| Greedy              |
+| Backtracking        |
+| Divide and Conquer  |
+| Bits                |
+| Stack and Queue     |
+| Strings             |
+| Binary Tree         |
+| Binary Search Tree  |
+| Mixed Questions     |
+| Graph               |
+| Dynamic Programming |
 
 <br/>
 
