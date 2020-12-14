@@ -38,21 +38,27 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> fre(n, 0);
-        for(auto x: nums)
-            fre[x]++;
-        for(int i = 1; i < n; i++) {
-            if(fre[i] >= 2)
-                return i;
+        if(nums.size() <= 1) return -1;
+        int slow = 0, fast = 0, n = nums.size();
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+        while(slow != fast) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
         }
-        return 0;
+        slow = 0;
+        while(slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
     }
+// First the slow pointer goes 1 step and fast pointer goes 2 steps at a time and then both the pointers goes 1 step at a time
 };
 ```
 
 #### Time Complexity : O(n), where n is the size of the array
-#### Space Complexity : O(n)
+#### Space Complexity : O(1)
 
 <br/>
 
