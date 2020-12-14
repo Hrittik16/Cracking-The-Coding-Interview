@@ -53,7 +53,8 @@ public:
         }
         return slow;
     }
-// First the slow pointer goes 1 step and fast pointer goes 2 steps at a time and then both the pointers goes 1 step at a time
+// First the slow pointer goes 1 step and fast pointer goes 2 steps 
+// at a time and then both the pointers goes 1 step at a time
 };
 ```
 
