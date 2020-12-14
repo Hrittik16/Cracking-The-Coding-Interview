@@ -121,20 +121,21 @@ public:
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
+        if(nums.size() == 0 || nums.size() == 1) return;
         int n = nums.size();
-        int beg = 0, end = n-1, mid = 0;
-        while(mid <= end) {
-            if(nums[mid] != 0 && nums[mid] != 2)
-                mid++;
-            else if(nums[mid] == 0) {
-                swap(nums[beg], nums[mid]);
-                beg++;
-                mid++;
+        int start = 0, pointer = 0, end = n-1;
+        while(start < end && pointer <= end) {
+            if(nums[pointer] == 0) {
+                swap(nums[start],nums[pointer]);
+                start++;
+                pointer++;
             }
-            else if(nums[mid] == 2) {
-                swap(nums[end], nums[mid]);
+            else if(nums[pointer] == 2) {
+                swap(nums[pointer], nums[end]);
                 end--;
             }
+            else
+                pointer++;
         }
     }
 };
