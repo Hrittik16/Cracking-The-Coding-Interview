@@ -157,3 +157,55 @@ public:
 
 #### Time Complexity : O(n), where n is the size of the array
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 5 : Merge Intervals
+### [Link to Question](https://leetcode.com/problems/merge-intervals/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if(intervals.size() < 2)
+            return intervals;
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> a;
+        int mx = intervals[0][1];
+        for(int i = 1; i < intervals.size(); i++) {
+            if(intervals[i][0] <= mx) {
+                if(!a.empty()) {
+                    if(a[a.size()-1][1] >= intervals[i][0]) {
+                        a[a.size()-1][1] = max(intervals[i][1], a[a.size()-1][1]);
+                        mx = max(intervals[i][1], a[a.size()-1][1]);
+                    }
+                }
+                else {
+                    vector<int> temp;
+                    temp.push_back(intervals[i-1][0]);
+                    temp.push_back(max(intervals[i][1], intervals[i-1][1]));
+                    a.push_back(temp);
+                    mx = max(intervals[i][1], intervals[i-1][1]);
+                }
+            }
+            else {
+                if(!a.empty()) {
+                    a.push_back(intervals[i]);
+                    mx = max(mx, intervals[i][1]);
+                }
+                else {
+                    a.push_back(intervals[i-1]);
+                    a.push_back(intervals[i]);
+                    mx = max(mx, intervals[i][1]);
+                }
+            }
+        }
+        return a;
+    }
+};
+```
+
+#### Time Complexity : O(nlogn), where n is the size of intervals array
+#### Space Complexity : O(1)
