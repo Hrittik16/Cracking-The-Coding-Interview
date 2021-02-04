@@ -1,6 +1,6 @@
 # DATA STRUCTURES AND ALGORITHMS
 
-### Questions Curated by : take U forward (Youtube Channel)
+### Questions Curated by : take U forward ([Youtube Channel](https://www.youtube.com/channel/UCJskGeByzRRSvmOyZOz61ig))
 ### [Link to Questions](https://docs.google.com/document/d/1SM92efk8oDl8nyVw8NHPnbGexTS9W-1gmTEYfEurLWQ/edit)
 
 
