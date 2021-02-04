@@ -305,17 +305,16 @@ public:
         map<int, int> a;
         a[nums[nums.size()-1]] = nums.size()-1;
         for(int i = nums.size()-2; i >= 0; i--) {
-            for(auto x: a) {
-                if(nums[i] < x.first) {
-                    flag = 1;
-                    nums.erase(nums.begin()+x.second);
-                    nums.insert(nums.begin()+i, x.first);
-                    sort(nums.begin()+i+1, nums.end());
-                    break;
-                }
-                else {
+            auto x = a.upper_bound(nums[i]);
+            if(x != a.end() && nums[i] < x->first) {
+                flag = 1;
+                nums.erase(nums.begin()+x->second);
+                nums.insert(nums.begin()+i, x->first);
+                sort(nums.begin()+i+1, nums.end());
+                break;
+            }
+            else {
                 a[nums[i]] = i;
-                }
             }
             if(flag) break;
         }
@@ -323,3 +322,8 @@ public:
     }
 };
 ```
+
+#### Time Complexity : O(numRows^2)
+#### Space Complexity : O(1)
+
+<br>
