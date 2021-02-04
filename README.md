@@ -278,7 +278,7 @@ public:
 
 
 ### Question 8 : Next Permutation
-### [Link to Question]()
+### [Link to Question](https://leetcode.com/problems/next-permutation/)
 
 ### **CODE**
 ```c++
@@ -327,3 +327,67 @@ public:
 #### Space Complexity : O(n)
 
 <br>
+
+
+### Question 9 : Global and Local Inversions
+### [Link to Question](https://leetcode.com/problems/global-and-local-inversions/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int global_inv = 0;
+    void merge(vector<int>& A, int beg, int mid, int end) {
+        int m = end-beg+1;
+        vector<int> B(m);
+        int i = beg, j = mid+1, curr = 0;
+        while(i <= mid && j <= end) {
+            if(A[i] <= A[j]) {
+                B[curr] = A[i];
+                curr++;
+                i++;
+            }
+            else {
+                B[curr] = A[j];
+                curr++;
+                j++;
+                global_inv += mid-i+1;
+            }
+        }
+        while(i <= mid) {
+            B[curr] = A[i];
+            curr++;
+            i++;
+        }
+        while(j <= end) {
+            B[curr] = A[j];
+            curr++;
+            j++;
+        }
+        curr = 0;
+        for(int i = beg; i <= end; i++) {
+            A[i] = B[curr];
+            curr++;
+        }
+    }
+    void mergesort(vector<int>& A, int beg, int end) {
+        if(beg == end) return;
+        int mid = (beg+end)/2;
+        mergesort(A, beg, mid);
+        mergesort(A, mid+1, end);
+        merge(A, beg, mid, end);
+    }
+    bool isIdealPermutation(vector<int>& A) {
+        int local_inv = 0;
+        int n = A.size();
+        for(int i = 1; i < n; i++) {
+            if(A[i-1] > A[i]) local_inv++;
+        }
+        mergesort(A, 0, n-1);
+        return (local_inv == global_inv);
+    }
+};
+```
+
+#### Time Complexity : O(nlog(n)), where n is the size of the vector A
+#### Space Complexity : O(n)
