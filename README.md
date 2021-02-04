@@ -1,11 +1,10 @@
 # DATA STRUCTURES AND ALGORITHMS
 
-## Questions Curated by : take U forward (Youtube Channel)
-## [Link to Questions](https://docs.google.com/document/d/1SM92efk8oDl8nyVw8NHPnbGexTS9W-1gmTEYfEurLWQ/edit)
+### Questions Curated by : take U forward (Youtube Channel)
+### [Link to Questions](https://docs.google.com/document/d/1SM92efk8oDl8nyVw8NHPnbGexTS9W-1gmTEYfEurLWQ/edit)
 
-### Note : I am not following best coding practices like adding descriptive names to variables, commenting codes etc. as I want to solve as many questions as possible to understand how to apply basic data structures and algorithms to coding questions
 
-## Table of Content
+### Table of Content
  
 | Topic               |
 |---------------------|        
