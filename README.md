@@ -273,3 +273,24 @@ public:
 
 #### Time Complexity : O(numRows^2)
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 8 : Next Permutation
+### [Link to Question]()
+
+### **CODE**
+```c++
+// This is the code using inbuilt function
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int count = 0;
+        do {
+            if(count == 1) break;
+            count++;
+        } while(next_permutation(nums.begin(), nums.end()));
+    }
+};
+```
