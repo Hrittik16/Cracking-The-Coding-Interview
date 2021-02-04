@@ -187,3 +187,43 @@ public:
 
 #### Time Complexity : O(nlogn), where n is the size of intervals array
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 6 : Set Matrix Zeroes
+### [Link to Question](https://leetcode.com/problems/set-matrix-zeroes/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        unordered_set<int> index;
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(matrix[i][j] == 0) index.insert(i*n+j+1);
+            }
+        }
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(index.find(i*n+j+1) != index.end()) {
+                    int a = i;
+                    int b = j;
+                    for(int k = 0; k < n; k++) matrix[a][k] = 0;
+                    for(int l = 0; l < m; l++) matrix[l][b] = 0;
+                }
+            }
+        }
+        
+    }
+};
+```
+
+#### Time Complexity : O(m*n)
+#### Space Complexity : O(m*n)
+
+<br>
