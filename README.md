@@ -242,3 +242,34 @@ public:
 #### Space Complexity : O(1)
 
 <br>
+
+
+### Question 7 : Pascals Triangle
+### [Link to Question](https://leetcode.com/problems/pascals-triangle/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> triangle;
+        if(numRows == 0) return triangle;
+        vector<int> first_row = {1}, second_row = {1,1};
+        triangle.push_back(first_row);
+        if(numRows == 1) return triangle;
+        triangle.push_back(second_row);
+        for(int i = 3; i <= numRows; i++) {
+            vector<int> curr_row = {1};
+            for(int j = 1; j < triangle.back().size(); j++) {
+                curr_row.push_back(triangle.back()[j]+triangle.back()[j-1]);
+            }
+            curr_row.push_back(1);
+            triangle.push_back(curr_row);
+        }
+        return triangle;
+    }
+};
+```
+
+#### Time Complexity : O(numRows^2)
+#### Space Complexity : O(1)
