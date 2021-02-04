@@ -323,7 +323,7 @@ public:
 };
 ```
 
-#### Time Complexity : O(numRows^2)
-#### Space Complexity : O(1)
+#### Time Complexity : O(nlog(n)), where n is the size of the vector nums
+#### Space Complexity : O(n)
 
 <br>
