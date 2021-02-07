@@ -467,3 +467,37 @@ public:
 
 #### Time Complexity : O(m), where m is the number of rows in the matrix
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 13 : Pow(x, n)
+### [Link to Question](https://leetcode.com/problems/powx-n/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    double expo(double x, long long n, double M, bool flag) {
+        if(n == 0) return 1;
+        if(n&1 && !flag) 
+            return fmod((x*expo(fmod((x*x),M), (n-1)/2, M, flag)),M);
+        else if(!(n&1) && !flag)
+            return expo(fmod((x*x),M), n/2, M, flag);
+        else if(n&1 && flag)
+            return x*expo(x*x, (n-1)/2, M, flag);
+        else 
+            return expo(x*x, n/2, M, flag);
+    }
+    double myPow(double x, int n) {
+        double M = 10001.0;
+        long long k = n;
+        double ans = expo(x, abs(k), M, n < 0 ? 1 : 0);
+        if(n < 0) return 1/ans;
+        return ans;
+    }
+};
+```
+
+#### Time Complexity : O(log2(n)) 
+#### Space Complexity : O(1)
