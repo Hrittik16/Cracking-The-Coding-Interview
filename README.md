@@ -501,3 +501,32 @@ public:
 
 #### Time Complexity : O(log2(n)) 
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 14 : Majority Element
+### [Link to Question](https://leetcode.com/problems/majority-element/submissions/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int, int> fre;
+        for(auto &x: nums) fre[x]++;
+        int ans;
+        for(auto &x: fre) {
+            if(x.second > n/2) {
+                ans = x.first;
+                break;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Time Complexity : O(n), where n is the size of vector nums 
+#### Space Complexity : O(1)
