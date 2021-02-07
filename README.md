@@ -441,3 +441,29 @@ public:
     }
 };
 ```
+
+<br>
+
+
+### Question 12 : Search a 2D Matrix
+### [Link to Question](https://leetcode.com/problems/search-a-2d-matrix/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int i;
+        for(i = 0; i < m; i++) {
+            if(target <= matrix[i][n-1]) break;
+        }
+        if(i == m) return false;
+        if(binary_search(matrix[i].begin(), matrix[i].end(), target)) return true;
+        else return false;
+    }
+};
+```
+
+#### Time Complexity : O(m), where m is the number of rows in the matrix
+#### Space Complexity : O(1)
