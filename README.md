@@ -417,3 +417,27 @@ public:
 
 #### Time Complexity : O(n), where n is the size of vector prices
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 11 : Rotate Image
+### [Link to Question](https://leetcode.com/problems/rotate-image/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        vector<vector<int>> new_matrix(matrix.size());
+        int curr = 0;
+        for(int i = 0; i < matrix.size(); i++) {
+            for(int j = matrix.size()-1; j >= 0; j--) {
+                new_matrix[curr].push_back(matrix[j][i]);   
+            }
+            curr++;
+        }
+        matrix = new_matrix;
+    }
+};
+```
