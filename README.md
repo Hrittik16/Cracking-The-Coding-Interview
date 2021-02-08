@@ -569,3 +569,33 @@ public:
 
 #### Time Complexity : O(n), where n is the size of vector nums 
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 16 : Unique Paths
+### [Link to Question](https://leetcode.com/problems/unique-paths/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        m--;
+        n--;
+        int temp = min(m, n), temp1 = m+n;
+        long long ans1 = 1, ans2 = 1;
+        while(temp) {
+            ans1 *= (long long)temp;
+            ans2 *= (long long)temp1;
+            temp--;
+            temp1--;
+        }
+        int ans = (int)(ans2/ans1);
+        return ans;
+    }
+};
+```
+
+#### Time Complexity : O(min(m, n))
+#### Space Complexity : O(1)
