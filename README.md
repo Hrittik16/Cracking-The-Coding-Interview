@@ -669,3 +669,26 @@ public:
 
 #### Time Complexity : O(nlogn)
 #### Space Complexity : O(n)
+
+<br>
+
+
+### Question 18 : Missing Number 
+### [Link to Question](https://leetcode.com/problems/missing-number/submissions/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int sum = (n*(n+1))/2;
+        int sum2 = 0;
+        for(auto &x: nums) sum2 += x;
+        return (sum-sum2);
+    }
+};
+```
+
+#### Time Complexity : O(n)
+#### Space Complexity : O(1)
