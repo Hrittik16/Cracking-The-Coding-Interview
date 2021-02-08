@@ -599,3 +599,71 @@ public:
 
 #### Time Complexity : O(min(m, n))
 #### Space Complexity : O(1)
+
+
+<br>
+
+
+### Question 17 : Reverse Pairs
+### [Link to Question](https://leetcode.com/problems/reverse-pairs/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int count = 0;
+    void merge(vector<int>& nums, int beg, int mid, int end) {
+        int n = nums.size();
+        int m = end-beg+1;
+        vector<int> temp(m);
+        int i = beg, j = mid+1, k = 0;
+        for(int a = mid+1; a <= end; a++) {
+            if(upper_bound(nums.begin()+beg, nums.begin()+mid, (long long)2*nums[a]) != nums.end()) {
+                auto index = upper_bound(nums.begin()+beg, nums.begin()+mid+1, (long long)2*nums[a]) - nums.begin();
+                //cout << "index = " << index << "\n";
+                count += mid-index+1;
+            }
+        }
+        while(i <= mid && j <= end) {
+            if(nums[i] <= nums[j]) {
+                temp[k] = nums[i];
+                k++;
+                i++;
+            }
+            else {
+                temp[k] = nums[j];
+                k++;
+                j++;
+            }
+        }
+        while(i <= mid) {
+            temp[k] = nums[i];
+            k++;
+            i++;
+        }
+        while(j <= end) {
+            temp[k] = nums[j];
+            k++;
+            j++;
+        }
+        k = 0;
+        for(i = beg; i <= end; i++) nums[i] = temp[k], k++;
+        //cout << "beg = " << beg << " mid = " << mid << " end = " << end << " count = " << count << "\n";
+    }
+    void mergesort(vector<int>& nums, int beg, int end) {
+        if(beg == end) return;
+        int mid = (beg+end)/2;
+        mergesort(nums, beg, mid);
+        mergesort(nums, mid+1, end);
+        merge(nums, beg, mid, end);
+    }
+    int reversePairs(vector<int>& nums) {
+        if(nums.size() < 2) return 0;
+        mergesort(nums, 0, nums.size()-1);
+        return count;
+    }
+};
+```
+
+#### Time Complexity : O(nlogn^2)
+#### Space Complexity : O(n)
