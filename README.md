@@ -530,3 +530,42 @@ public:
 
 #### Time Complexity : O(n), where n is the size of vector nums 
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 15 : Majority Element 2
+### [Link to Question](https://leetcode.com/problems/majority-element-ii/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+//     Moore's Voting Algorithm
+    vector<int> majorityElement(vector<int>& nums) {
+        if(nums.size() < 2) return nums;
+        int n = nums.size();
+        vector<int> ans;
+        int num1 = -1, num2 = -1, c1 = 0, c2 = 0;
+        for(auto &x: nums) {
+            if(x == num1) c1++;
+            else if(x == num2) c2++;
+            else if(c1 == 0) num1 = x, c1 = 1;
+            else if(c2 == 0) num2 = x, c2 = 1;
+            else c1--, c2--;
+        }
+        int fre_num1 = 0, fre_num2 = 0;
+        for(auto &x: nums) {
+            if(x == num1) fre_num1++;
+            if(x == num2) fre_num2++;
+        }
+        if(fre_num1 > n/3) ans.push_back(num1);
+        if(num1 == num2) return ans;
+        if(fre_num2 > n/3) ans.push_back(num2);
+        return ans;
+    }
+};
+```
+
+#### Time Complexity : O(n), where n is the size of vector nums 
+#### Space Complexity : O(1)
