@@ -617,13 +617,16 @@ public:
         int m = end-beg+1;
         vector<int> temp(m);
         int i = beg, j = mid+1, k = 0;
-        for(int a = mid+1; a <= end; a++) {
-            if(upper_bound(nums.begin()+beg, nums.begin()+mid, (long long)2*nums[a]) != nums.end()) {
-                auto index = upper_bound(nums.begin()+beg, nums.begin()+mid+1, (long long)2*nums[a]) - nums.begin();
-                //cout << "index = " << index << "\n";
-                count += mid-index+1;
+        while(i <= mid && j <= end) {
+            if((long long)nums[i] > (long long)2*nums[j]) {
+                count += mid-i+1;
+                j++;
+            }
+            else {
+                i++;
             }
         }
+        i = beg, j = mid+1;
         while(i <= mid && j <= end) {
             if(nums[i] <= nums[j]) {
                 temp[k] = nums[i];
@@ -648,7 +651,6 @@ public:
         }
         k = 0;
         for(i = beg; i <= end; i++) nums[i] = temp[k], k++;
-        //cout << "beg = " << beg << " mid = " << mid << " end = " << end << " count = " << count << "\n";
     }
     void mergesort(vector<int>& nums, int beg, int end) {
         if(beg == end) return;
@@ -665,5 +667,5 @@ public:
 };
 ```
 
-#### Time Complexity : O(nlogn^2)
+#### Time Complexity : O(nlogn)
 #### Space Complexity : O(n)
