@@ -36,7 +36,7 @@
 ```c++
 class Solution {
 public:
-//  Algorithm : Floyd's Cycle
+//  Algorithm : Floyd's Cycle Detection
 //  First the slow pointer goes 1 step and fast pointer goes 2 steps 
 //  at a time and then both the pointers goes 1 step at a time
 //  The while loops work because we know for sure there's a cycle
