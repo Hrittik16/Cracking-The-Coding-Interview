@@ -36,11 +36,13 @@
 ```c++
 class Solution {
 public:
+//  Algorithm : Floyd's Cycle
+//  First the slow pointer goes 1 step and fast pointer goes 2 steps 
+//  at a time and then both the pointers goes 1 step at a time
+//  The while loops work because we know for sure there's a cycle
     int findDuplicate(vector<int>& nums) {
-        if(nums.size() <= 1) return -1;
-        int slow = 0, fast = 0, n = nums.size();
-        slow = nums[slow];
-        fast = nums[nums[fast]];
+        int slow = nums[0];
+        int fast = nums[nums[0]];
         while(slow != fast) {
             slow = nums[slow];
             fast = nums[nums[fast]];
@@ -52,8 +54,6 @@ public:
         }
         return slow;
     }
-// First the slow pointer goes 1 step and fast pointer goes 2 steps 
-// at a time and then both the pointers goes 1 step at a time
 };
 ```
 
