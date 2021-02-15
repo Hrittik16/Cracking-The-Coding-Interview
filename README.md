@@ -721,3 +721,42 @@ public:
 
 #### Time Complexity : O(n)
 #### Space Complexity : O(n)
+
+<br>
+
+
+### Question 20 : 4Sum
+### [Link to Question](https://leetcode.com/problems/4sum/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        set<pair<pair<int, int>, pair<int, int>>> check;
+        vector<vector<int>> ans;
+        for(int i = 0; i < nums.size(); i++) {
+            for(int j = i+1; j < nums.size(); j++) {
+                unordered_set<int> curr;
+                for(int k = j+1; k < nums.size(); k++) {
+                    if(curr.find(target - (nums[i]+nums[j]+nums[k])) != curr.end()) {
+                        vector<int> temp = {nums[i], nums[j], nums[k], target-(nums[i]+nums[j]+nums[k])};
+                        sort(temp.begin(), temp.end());
+                        if(check.find(make_pair(make_pair(temp[0], temp[1]), make_pair(temp[2], temp[3]))) != check.end()) {
+                            curr.insert(nums[k]);
+                            continue;
+                        }
+                        ans.push_back(temp);
+                        check.insert(make_pair(make_pair(temp[0], temp[1]), make_pair(temp[2], temp[3])));
+                    }
+                    curr.insert(nums[k]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Time Complexity : O(n^3log(n))
+#### Space Complexity : O(n)
