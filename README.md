@@ -692,3 +692,32 @@ public:
 
 #### Time Complexity : O(n)
 #### Space Complexity : O(1)
+
+<br>
+
+
+### Question 19 : Two Sum
+### [Link to Question](https://leetcode.com/problems/two-sum/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> index;
+        unordered_map<int, int> check;
+        for(int i = 0; i < nums.size(); i++) {
+            if(check.find(target-nums[i]) != check.end()) {
+                index.push_back(i);
+                index.push_back(check[target-nums[i]]);
+                break;
+            }
+            check[nums[i]] = i;
+        }
+        return index;
+    }
+};
+```
+
+#### Time Complexity : O(n)
+#### Space Complexity : O(n)
