@@ -760,3 +760,31 @@ public:
 
 #### Time Complexity : O(n^3log(n))
 #### Space Complexity : O(n)
+
+<br>
+
+
+### Question 21 : Subarray Sum Equals K
+### [Link to Question](https://leetcode.com/problems/subarray-sum-equals-k/)
+
+### **CODE**
+```c++
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> sums;
+        int curr_sum = 0, count = 0;
+        for(int i = 0; i < nums.size(); i++) {
+            curr_sum += nums[i];
+            if(sums.find(curr_sum-k) != sums.end())
+                count += sums[curr_sum-k];
+            sums[curr_sum]++;
+            if(curr_sum == k) count++;
+        }
+        return count;
+    }
+};
+```
+
+#### Time Complexity : O(n), where n is the size of the array
+#### Space Complexity : O(n)
