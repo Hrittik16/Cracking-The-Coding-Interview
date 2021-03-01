@@ -848,3 +848,40 @@ int Solution::solve(vector<int> &A, int B) {
 #### Space Complexity : O(n)
 
 <br>
+
+
+### Question 24 : Longest Substring Without Repeating Characters
+### [Link to Question](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+### **CODE**
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<int, int> index;
+        int count = 0, mx = 0, idx = 0;
+        for(int i = 0; i < s.length(); i++) {
+            if(i != 0 && s[i] == s[i-1]) {
+                index.clear();
+                index[s[i]] = i;
+                count = 1;
+                continue;
+            }
+            if(index.find(s[i]) != index.end() && index[s[i]] >= idx) {
+                count = i-index[s[i]];
+                idx = index[s[i]];
+                index[s[i]] = i;
+                continue;
+            }
+            index[s[i]] = i;
+            count++;
+            mx = max(mx, count);
+        }
+        return mx;
+    }
+};
+```
+
+#### Time Complexity : O(n), where n is the length of string s
+#### Space Complexity : O(n)
+
+<br>
