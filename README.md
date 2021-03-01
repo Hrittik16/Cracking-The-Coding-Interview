@@ -696,6 +696,8 @@ public:
 <br>
 
 
+## HASHING
+
 ### Question 19 : Two Sum
 ### [Link to Question](https://leetcode.com/problems/two-sum/)
 
@@ -788,3 +790,35 @@ public:
 
 #### Time Complexity : O(n), where n is the size of the array
 #### Space Complexity : O(n)
+
+<br>
+
+### Question 22 : Longest Consecutive Sequence
+### [Link to Question](https://leetcode.com/problems/longest-consecutive-sequence/)
+### **CODE**
+```c++
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if(nums.size() < 1) return 0;
+        unordered_set<int> check;
+        for(auto &x: nums) check.insert(x);
+        int mx = 1;
+        for(int i = 0; i < nums.size(); i++) {
+            if(check.find(nums[i]-1) != check.end()) continue;
+            int count = 1, temp = nums[i]+1;
+            while(check.find(temp) != check.end()) {
+                count++;
+                temp++;
+            }
+            mx = max(mx, count);
+        }
+        return mx;
+    }
+};
+```
+
+#### Time Complexity : O(n), where n is the size of the array
+#### Space Complexity : O(n)
+
+<br>
