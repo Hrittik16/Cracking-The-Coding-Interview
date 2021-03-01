@@ -822,3 +822,29 @@ public:
 #### Space Complexity : O(n)
 
 <br>
+
+
+### Question 23 : Subarray With Given Xor
+### [Link to Question](https://www.interviewbit.com/problems/subarray-with-given-xor/)
+### **CODE**
+```c++
+int Solution::solve(vector<int> &A, int B) {
+    unordered_map<int, int> check;
+    int curr = A[0];
+    int count = 0;
+    if(curr == B) count++;
+    check[curr]++;
+    for(int i = 1; i < A.size(); i++) {
+        curr ^= A[i];
+        if(curr == B) count++;
+        if(check.find(curr^B) != check.end()) count += check[curr^B];
+        check[curr]++;
+    }
+    return count;
+}
+```
+
+#### Time Complexity : O(n), where n is the size of the array
+#### Space Complexity : O(n)
+
+<br>
