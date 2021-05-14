@@ -885,3 +885,67 @@ public:
 #### Space Complexity : O(n)
 
 <br>
+
+
+## LINKED LIST
+
+### Question 25: Reversing a Linked List
+### [Link to Question](https://leetcode.com/problems/reverse-linked-list/)
+### **CODE**
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head, ListNode* prev) {
+        if(head == nullptr) 
+            return head;
+        if(head->next == nullptr) {
+            head->next = prev;
+            return head;
+        }
+        ListNode* temp = head->next;
+        head->next = prev;
+        prev = head;
+        head = temp;
+        return reverseList(head, prev);
+    }
+    
+    ListNode* reverseList(ListNode* head) {
+        // RECURSIVE SOLUTION
+        ListNode* prev = nullptr;
+        head = reverseList(head, prev);
+        return head;
+        
+        /* ITERATIVE SOLUTION
+        if(head == nullptr || head->next == nullptr)
+            return head;
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+        ListNode* next = head->next;
+        while(next != nullptr) {
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+            next = next->next;
+        }
+        curr->next = prev;
+        head = curr;
+        return head;
+        */
+    }
+};
+```
+
+#### Time Complexity: O(n)
+#### Space Complexity: O(1)
+
+<br>
