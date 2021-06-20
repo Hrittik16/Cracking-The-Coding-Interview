@@ -39,7 +39,7 @@ public:
 //  Algorithm : Floyd's Cycle Detection
 //  First the slow pointer goes 1 step and fast pointer goes 2 steps 
 //  at a time and then both the pointers goes 1 step at a time
-//  The while loops work because we know for sure there's a cycle
+//  The while loops works because we know for sure there's a cycle
     int findDuplicate(vector<int>& nums) {
         int slow = nums[0];
         int fast = nums[nums[0]];
